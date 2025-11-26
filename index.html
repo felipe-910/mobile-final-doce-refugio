@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Confeitaria artesanal com os melhores bolos de São Paulo. Bolos de festa, caseiros, fitness e doces finos.">
+    <meta name="theme-color" content="#8B4513">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Refúgio Doce">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/pwa_icon_original.jpeg">
+    <title>Refúgio Doce - Confeitaria Artesanal</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile-icon.css">
+    <link rel="stylesheet" href="profile-override.css">
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+    <script src="auth.js"></script>
+    <script src="profile-handler.js"></script>
+    <script src="global-profile-sync.js"></script>
+
+    <!-- BLOQUEIO DA PÁGINA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!localStorage.getItem("userData")) {
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+</head>
+<body>
+    
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+            <div class="container">
+                <a class="navbar-brand custom-brand" href="#">
+                    <img src="logo2kk.png" alt="Refúgio Doce" class="navbar-logo">
+                </a>
+                
+                <button class="navbar-toggler custom-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto custom-nav justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cardapio.html">Cardapio</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="d-flex align-items-center gap-3 custom-actions ms-auto">
+                        <button class="btn btn-icon position-relative">
+                            <span class="icon-cart">🛒</span>
+                            <span class="cart-badge">0</span>
+                        </button>
+                        <div class="vr d-none d-lg-block"></div>
+
+                        <!-- APENAS ÍCONE DO USUÁRIO -->
+                        <div id="user-profile-container">
+                            <div class="profile-icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle profile-icon" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- TUDO ABAIXO É SEU CONTEÚDO ORIGINAL -->
+    <!-- NÃO ALTEREI NADA -->
+<section class="menu-hero">
+        <div class="hero-overlay"></div>
+        <div class="container text-center hero-content">
+            <h1 class="menu-title">Conheça a melhor casa de bolo de toda São Paulo</h1>
+            <p class="menu-subtitle">Sabores que encantam, feitos com amor e tradição</p>
+            <div class="hero-cta">
+                <a href="cardapio.html" class="btn btn-primary-custom btn-lg">Ver Cardápio</a>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categorias -->
+    <section class="categories-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Nossas Especialidades</h2>
+                <p class="section-subtitle">Descubra nossa variedade de produtos feitos com carinho</p>
+            </div>
+            <div class="row g-4">
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1602351447937-745cb720612f');"></div>
+                        <div class="category-content">
+                            <h3>Bolos de Festa</h3>
+                            <p>Celebre momentos especiais com nossas criações exclusivas</p>
+                            <a href="cardapio.html" class="category-link">Explorar →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1713603206349-fb641ee90935');"></div>
+                        <div class="category-content">
+                            <h3>Bolos Caseiros</h3>
+                            <p>Sabores que remetem à infância e ao aconchego do lar</p>
+                            <a href="cardapio.html" class="category-link">Explorar →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1535141192574-5d4897c12636');"></div>
+                        <div class="category-content">
+                            <h3>Bolos Fitness</h3>
+                            <p>Opções saudáveis sem abrir mão do sabor e qualidade</p>
+                            <a href="cardapio.html" class="category-link">Explorar →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="category-card">
+                        <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1582293041079-7814c2f12063');"></div>
+                        <div class="category-content">
+                            <h3>Doces Finos</h3>
+                            <p>Sobremesas sofisticadas para paladares exigentes</p>
+                            <a href="cardapio.html" class="category-link">Explorar →</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="products-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Mais Pedidos</h2>
+                <p class="section-subtitle">Os queridinhos dos nossos clientes</p>
+            </div>
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge">Mais Vendido</div>
+                        <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1616541823729-00fe0aacd32c');"></div>
+                        <div class="product-content">
+                            <h3>Red Velvet Premium</h3>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(128)</span>
+                            </div>
+                            <p>Bolo vermelho aveludado com cream cheese importado.</p>
+                            <div class="product-price">
+                                <span class="price">R$ 94,90</span>
+                                <span class="price-note">Serve 8-10 pessoas</span>
+                            </div>
+                            <a href="cardapio.html" class="btn btn-primary-custom btn-sm btn-add-cart">Adicionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge">Clássico</div>
+                        <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587');"></div>
+                        <div class="product-content">
+                            <h3>Chocolate Belga</h3>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-count">(96)</span>
+                            </div>
+                            <p>Massa de chocolate belga com ganache.</p>
+                            <div class="product-price">
+                                <span class="price">R$ 79,90</span>
+                                <span class="price-note">Serve 6-8 pessoas</span>
+                            </div>
+                            <a href="cardapio.html" class="btn btn-primary-custom btn-sm btn-add-cart">Adicionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge">Tradicional</div>
+                        <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1565958011703-44f9829ba187');"></div>
+                        <div class="product-content">
+                            <h3>Morango Fresco</h3>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(142)</span>
+                            </div>
+                            <p>Bolo branco com creme e morangos selecionados.</p>
+                            <div class="product-price">
+                                <span class="price">R$ 87,90</span>
+                                <span class="price-note">Serve 8-10 pessoas</span>
+                            </div>
+                            <a href="cardapio.html" class="btn btn-primary-custom btn-sm btn-add-cart">Adicionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge">Caseiro</div>
+                        <div class="product-img" style="background-image: url('https://plus.unsplash.com/premium_photo-1716978247530-816846c4cb7d');"></div>
+                        <div class="product-content">
+                            <h3>Cenoura com Chocolate</h3>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-count">(113)</span>
+                            </div>
+                            <p>Receita tradicional com cobertura de chocolate.</p>
+                            <div class="product-price">
+                                <span class="price">R$ 64,90</span>
+                                <span class="price-note">Serve 6-8 pessoas</span>
+                            </div>
+                            <a href="cardapio.html" class="btn btn-primary-custom btn-sm btn-add-cart">Adicionar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+   
+    <footer class="bg-dark text-white pt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-3">
+                        
+                        <h3>Refúgio Doce</h3>
+                    </div>
+                    <p class="text-light opacity-75 mb-4">
+                        Confeitaria artesanal dedicada a criar momentos especiais através da doçura. Desde 2012.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">WhatsApp</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-title">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Bolos</a></li>
+
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-title">Categorias</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Bolos de Festa</a></li>
+                        <li><a href="#">Bolos Caseiros</a></li>
+                        <li><a href="#">Bolos Fitness</a></li>
+                        <li><a href="#">Doces Finos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Contato & Localização</h4>
+                    <ul class="contact-info">
+                        <li> Etec de Heliopolis</li>
+                        <li> (11) 98765-4321</li>
+                        <li> contato@refugiodoce.com.br</li>
+                        <li> Seg-Sáb: 8h às 20h | Dom: 9h às 18h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 opacity-25">
+            
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 opacity-75">&copy; 2024 Refúgio Doce. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="register-sw.js"></script>
+
+    <script>
+  (function() {
+    // Páginas possíveis (prefira "perfil.html"; se você usa "usuario.html" descomente a segunda linha)
+    const PROFILE_PAGE = "perfil.html";
+    // const PROFILE_PAGE = "usuario.html";
+
+    // Seletores que cobrimos (div, wrapper, svg, ícone)
+    const selectors = [
+      "#user-profile-container",
+      "#user-profile-container .profile-icon-wrapper",
+      "#user-profile-container .profile-icon",
+      ".profile-icon-wrapper",
+      ".profile-icon",
+      "svg.bi-person-circle"
+    ];
+
+    // Encontra o primeiro elemento existente entre esses seletores
+    let target = null;
+    for (const sel of selectors) {
+      const el = document.querySelector(sel);
+      if (el) { target = el; break; }
+    }
+
+    if (!target) {
+      // se nada foi encontrado, cria um listener delegador no document (cobre casos onde o ícone é renderizado depois)
+      document.addEventListener("click", function delegatedClick(e) {
+        const container = document.querySelector("#user-profile-container");
+        if (container && (container.contains(e.target) || e.target.matches("#user-profile-container"))) {
+          window.location.href = PROFILE_PAGE;
+        }
+      }, true);
+      // tenta dar estilo no container (se existir)
+      const container = document.querySelector("#user-profile-container");
+      if (container) {
+        container.style.cursor = "pointer";
+        container.setAttribute("role", "button");
+        if (!container.hasAttribute("tabindex")) container.setAttribute("tabindex", "0");
+        container.addEventListener("keydown", (ev) => {
+          if (ev.key === "Enter" || ev.key === " ") {
+            ev.preventDefault();
+            window.location.href = PROFILE_PAGE;
+          }
+        });
+      }
+      console.log("Listener delegador adicionado (por se não encontrar seletor específico).");
+      return;
+    }
+
+    // Aplica estilos e atributos de acessibilidade
+    try {
+      target.style.cursor = "pointer";
+    } catch (err) { /* ignorar se não puder setar */ }
+    if (!target.hasAttribute("role")) target.setAttribute("role", "button");
+    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "0");
+
+    // Clique normal
+    target.addEventListener("click", (e) => {
+      e.preventDefault && e.preventDefault();
+      window.location.href = PROFILE_PAGE;
+    });
+
+    // Suporte a teclado (Enter / Space)
+    target.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        window.location.href = PROFILE_PAGE;
+      }
+    });
+
+    // Caso o ícone seja um <svg> dentro de outro elemento que consome o clique,
+    // também adicionamos listener direto no svg (se existir)
+    const svg = target.querySelector && target.querySelector("svg");
+    if (svg) {
+      svg.style.cursor = "pointer";
+      svg.addEventListener("click", (e) => {
+        e.preventDefault && e.preventDefault();
+        window.location.href = PROFILE_PAGE;
+      });
+    }
+
+    console.log("Redirecionamento do ícone de usuário configurado ->", PROFILE_PAGE);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

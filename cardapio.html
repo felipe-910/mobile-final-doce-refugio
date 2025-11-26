@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Explore nosso cardápio completo de bolos artesanais. Bolos de festa, caseiros, fitness e doces finos.">
+    <meta name="theme-color" content="#8B4513">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Refúgio Doce">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/pwa_icon_original.jpeg">
+    <title>Cardápio - Refúgio Doce</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cardapio.css">
+    <link rel="stylesheet" href="profile-icon.css">
+    <link rel="stylesheet" href="profile-override.css">
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+    <script src="auth.js"></script>
+    <script src="profile-handler.js"></script>
+    <script src="global-profile-sync.js"></script>
+</head>
+<body>
+    
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+            <div class="container">
+                <a class="navbar-brand custom-brand" href="index.html">
+                    <img src="logo2kk.png" alt="Refúgio Doce" class="navbar-logo">
+                </a>
+                
+                <button class="navbar-toggler custom-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto custom-nav justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="cardapio.html">Cardápio</a>
+                        </li>
+
+                    </ul>
+                    
+                    <div class="d-flex align-items-center gap-3 custom-actions ms-auto">
+
+                        <button class="btn btn-icon position-relative" id="cartButton">
+                            <span class="icon-cart">🛒</span>
+                            <span class="cart-badge" id="cartBadge">0</span>
+                        </button>
+                        <div class="vr d-none d-lg-block"></div>
+                        <div id="auth-container" class="d-flex align-items-center gap-2">
+                            <div id="auth-buttons" class="d-none d-lg-flex gap-2">
+                                <a href="login.html" class="btn btn-outline-custom btn-sm">Entrar</a>
+                                <a href="login.html" class="btn btn-primary-custom btn-sm">Cadastrar</a>
+                            </div>
+                            <div id="user-profile-container" style="display: none;">
+                                <div class="profile-icon-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle profile-icon" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="menu-hero">
+        <div class="container text-center">
+            <h1 class="menu-title">Nosso Cardápio</h1>
+            <p class="menu-subtitle">Sabores que encantam, feitos com amor e tradição</p>
+        </div>
+    </section>
+
+    <!-- Filtros e Pesquisa -->
+    <section class="filters-section">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <div class="search-box w-100 w-md-50">
+                <input type="text" id="searchInput" class="form-control search-input" placeholder="Buscar por nome do bolo...">
+                <span class="search-icon"></span>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="todos">Todos</button>
+                <button class="filter-btn" data-category="festa">Festa</button>
+                <button class="filter-btn" data-category="fitness">Fitness</button>
+                <button class="filter-btn" data-category="doces-finos">Doces Finos</button>
+                <button class="filter-btn" data-category="caseiros">Caseiros</button>
+                <button class="filter-btn" data-category="caseiros">Gelados</button>
+                
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid de Produtos -->
+    <section class="products-grid-section py-5">
+        <div class="container">
+            <div id="productsGrid" class="row g-4">
+                <!-- Produtos via JS -->
+            </div>
+            <div id="noResults" class="no-results" style="display: none;">
+                <p>Nenhum produto encontrado com os filtros selecionados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Adicionar ao Carrinho -->
+    <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addToCartModalLabel">Adicionar ao Carrinho</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="product-modal-info mb-3">
+                        <h6 id="modalProductName" class="text-primary-custom mb-2"></h6>
+                        <p id="modalProductPrice" class="fw-bold text-muted mb-0"></p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="productQuantity" class="form-label">Quantidade</label>
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary" type="button" id="decreaseQty">-</button>
+                            <input type="number" class="form-control text-center" id="productQuantity" value="1" min="1" max="99">
+                            <button class="btn btn-outline-secondary" type="button" id="increaseQty">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="productObservations" class="form-label">Observações (opcional)</label>
+                        <textarea class="form-control" id="productObservations" rows="3" placeholder="Ex: Sem açúcar, decoração especial, etc."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary-custom" id="confirmAddToCart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Carrinho -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Meu Carrinho</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">
+                        <!-- Itens do carrinho serão inseridos aqui -->
+                    </div>
+                    <div id="emptyCart" class="text-center py-5" style="display: none;">
+                        <p class="text-muted">Seu carrinho está vazio</p>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div>
+                        <strong>Total: <span id="cartTotal">R$ 0,00</span></strong>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar Comprando</button>
+                        <button type="button" class="btn btn-primary-custom" id="finishOrder">Finalizar Pedido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-3">
+                        
+                        <h3>Refúgio Doce</h3>
+                    </div>
+                    <p class="text-light opacity-75 mb-4">
+                        Confeitaria artesanal dedicada a criar momentos especiais através da doçura. Desde 2012.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">WhatsApp</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-title">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="cardapio.html">Bolos</a></li>
+
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-title">Categorias</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Bolos de Festa</a></li>
+                        <li><a href="#">Bolos Caseiros</a></li>
+                        <li><a href="#">Bolos Fitness</a></li>
+                        <li><a href="#">Doces Finos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Contato & Localização</h4>
+                    <ul class="contact-info">
+                        <li> Etec de Heliopolis</li>
+                        <li> (11) 98765-4321</li>
+                        <li> contato@refugiodoce.com.br</li>
+                        <li> Seg-Sáb: 8h às 20h | Dom: 9h às 18h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 opacity-25">
+            
+            <div class="text-center opacity-75">
+                &copy; 2024 Refúgio Doce. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cardapio.js"></script>
+    <script src="register-sw.js"></script>
+</body>
+</html>

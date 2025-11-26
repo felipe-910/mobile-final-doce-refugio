@@ -1,0 +1,26 @@
+/* Override para garantir que os botões de auth sejam ocultados quando o usuário está logado */
+
+/* Quando o usuário está logado, força a ocultação dos botões */
+body.user-logged-in #auth-buttons {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Quando o usuário está logado, mostra o ícone de perfil */
+body.user-logged-in #user-profile-container {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Quando o usuário NÃO está logado, esconde o ícone de perfil */
+body:not(.user-logged-in) #user-profile-container {
+    display: none !important;
+}
+
+/* Quando o usuário NÃO está logado, mostra os botões */
+body:not(.user-logged-in) #auth-buttons {
+    display: flex !important;
+}

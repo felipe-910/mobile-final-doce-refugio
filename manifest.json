@@ -1,0 +1,80 @@
+{
+    "name": "Refúgio Doce - Confeitaria Artesanal",
+    "short_name": "Refúgio Doce",
+    "description": "Confeitaria artesanal com os melhores bolos de São Paulo. Bolos de festa, caseiros, fitness e doces finos.",
+    "start_url": "./login.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#ffffff",
+    "theme_color": "#8B4513",
+    "categories": ["food", "shopping"],
+    "screenshots": [
+        {
+            "src": "./pwa_icon_192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "./pwa_icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "form_factor": "wide"
+        }
+    ],
+    "icons": [
+        {
+            "src": "./pwa_icon_192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./pwa_icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./pwa_icon_192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "./pwa_icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Ver Cardápio",
+            "short_name": "Cardápio",
+            "description": "Acesse nosso cardápio completo de bolos e doces",
+            "url": "./cardapio.html",
+            "icons": [
+                {
+                    "src": "./pwa_icon_192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Meus Pedidos",
+            "short_name": "Pedidos",
+            "description": "Acompanhe seus pedidos",
+            "url": "./cardapio.html",
+            "icons": [
+                {
+                    "src": "./pwa_icon_192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ]
+}

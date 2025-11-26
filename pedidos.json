@@ -1,0 +1,116 @@
+[
+    {
+        "orderNumber": "123456789",
+        "orderDate": "2025-01-19T14:30:00.000Z",
+        "status": "novo",
+        "deliveryType": "delivery",
+        "paymentMethod": "pix",
+        "changeFor": null,
+        "items": [
+            {
+                "id": 1737298800000,
+                "productId": 1,
+                "name": "Red Velvet Premium",
+                "price": "R$ 94,90",
+                "priceValue": 94.9,
+                "image": "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?auto=format&fit=crop&w=600&q=80",
+                "quantity": 2,
+                "observations": "Sem nozes, por favor"
+            },
+            {
+                "id": 1737298810000,
+                "productId": 3,
+                "name": "Morango Fresco",
+                "price": "R$ 87,90",
+                "priceValue": 87.9,
+                "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80",
+                "quantity": 1,
+                "observations": ""
+            }
+        ],
+        "address": {
+            "cep": "12345-678",
+            "rua": "Rua das Flores",
+            "numero": "123",
+            "complemento": "Apto 45",
+            "bairro": "Centro",
+            "cidade": "São Paulo",
+            "referencia": "Próximo ao mercado"
+        },
+        "subtotal": 277.7,
+        "deliveryFee": 8.0,
+        "total": 285.7
+    },
+    {
+        "items": [
+            {
+                "id": 1763671526663,
+                "productId": 2,
+                "name": "Chocolate Belga",
+                "price": "R$ 79,90",
+                "priceValue": 79.9,
+                "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80",
+                "quantity": 14,
+                "observations": ""
+            }
+        ],
+        "deliveryType": "retirada",
+        "address": null,
+        "paymentMethod": "credito",
+        "changeFor": null,
+        "subtotal": 1118.6000000000001,
+        "deliveryFee": 0,
+        "total": 1118.6000000000001,
+        "orderDate": "2025-11-20T20:45:33.167Z",
+        "orderNumber": "533167412",
+        "status": "novo"
+    },
+    {
+        "items": [
+            {
+                "id": 1763765206533,
+                "productId": 3,
+                "name": "Morango Fresco",
+                "price": "R$ 87,90",
+                "priceValue": 87.9,
+                "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80",
+                "quantity": 1,
+                "observations": "ioo"
+            }
+        ],
+        "deliveryType": "retirada",
+        "address": null,
+        "paymentMethod": "dinheiro",
+        "changeFor": "R$ 0,02",
+        "subtotal": 87.9,
+        "deliveryFee": 0,
+        "total": 87.9,
+        "orderDate": "2025-11-21T22:47:08.504Z",
+        "orderNumber": "228504280",
+        "status": "novo"
+    },
+    {
+        "items": [
+            {
+                "id": 1763837339689,
+                "productId": 2,
+                "name": "Chocolate Belga",
+                "price": "R$ 79,90",
+                "priceValue": 79.9,
+                "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80",
+                "quantity": 3,
+                "observations": "teste"
+            }
+        ],
+        "deliveryType": "retirada",
+        "address": null,
+        "paymentMethod": "dinheiro",
+        "changeFor": "R$ 0,99",
+        "subtotal": 239.70000000000002,
+        "deliveryFee": 0,
+        "total": 239.70000000000002,
+        "orderDate": "2025-11-22T18:49:15.659Z",
+        "orderNumber": "355659674",
+        "status": "em_preparo"
+    }
+]

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário - Refúgio Doce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+
+<header class="topbar">
+    <button class="btn-voltar" onclick="history.back()">Voltar</button>
+    <h2>Meu Perfil</h2>
+    <button class="btn-salvar">
+        <span class="btn-text">Salvar</span>
+        
+    </button>
+</header>
+
+<div class="background-decoration">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+</div>
+
+<section class="container-perfil">
+
+    <!-- Seção Foto com Destaque -->
+    <div class="profile-hero">
+        <div class="foto-area">
+            <div class="foto-container">
+                <img src="" alt="Foto de perfil" class="foto" id="userPhoto" style="display: none;">
+                <div class="foto-placeholder" id="photoPlaceholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-person-circle profile-icon" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
+                </div>
+            </div>
+            <input type="file" id="photoInput" accept="image/*" style="display: none;">
+            <button class="editar-foto" onclick="document.getElementById('photoInput').click()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke="currentColor" stroke-width="2"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </button>
+        </div>
+        <div class="profile-welcome">
+            <h1 class="welcome-title">Olá, <span class="user-name">Maria</span>!</h1>
+            <p class="welcome-subtitle">Gerencie suas informações e preferências</p>
+        </div>
+    </div>
+
+    <!-- Informações Pessoais -->
+    <div class="section-card">
+        <div class="section-header">
+            <div class="section-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </div>
+            <h3 class="section-title">Informações Pessoais</h3>
+        </div>
+        <div class="form-grid">
+            <div class="campo">
+                <label>Nome</label>
+                <input type="text" value="Maria" class="input-elegant">
+            </div>
+            <div class="campo">
+                <label>Sobrenome</label>
+                <input type="text" value="de Almeida" class="input-elegant">
+            </div>
+            <div class="campo">
+                <label>Cidade</label>
+                <input type="text" value="São Carlos" class="input-elegant">
+            </div>
+            <div class="campo">
+                <label>Nascimento</label>
+                <input type="text" value="25/04/1995" class="input-elegant">
+            </div>
+        </div>
+        <div class="campo full">
+            <label>Biografia</label>
+            <textarea rows="3" class="input-elegant">Sou apaixonada por confeitaria e sempre busco os melhores bolos para minhas celebrações especiais!</textarea>
+        </div>
+        <div class="campo full">
+            <label>Profissão</label>
+            <input type="text" value="Confeiteira" class="input-elegant">
+        </div>
+    </div>
+
+    <!-- Preferências -->
+    <div class="section-card">
+        <div class="section-header">
+            <div class="section-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </div>
+            <h3 class="section-title">Preferências</h3>
+        </div>
+        <div class="toggle-grid">
+            <div class="toggle-item">
+                <div class="toggle-info">
+                    <span class="toggle-title">Promoções especiais</span>
+                    <span class="toggle-description">Receba ofertas exclusivas</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle-item">
+                <div class="toggle-info">
+                    <span class="toggle-title">Novos sabores</span>
+                    <span class="toggle-description">Notificações de lançamentos</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle-item">
+                <div class="toggle-info">
+                    <span class="toggle-title">Lembretes</span>
+                    <span class="toggle-description">Lembretes de aniversário</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <!-- Menu Principal -->
+    <div class="section-card">
+        <div class="section-header">
+            <div class="section-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                </svg>
+            </div>
+            <h3 class="section-title">Minha Conta</h3>
+        </div>
+        <div class="menu-grid">
+            <a href="#" class="menu-item" id="meusPedidosBtn">
+                <div class="menu-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                    </svg>
+                </div>
+                <div class="menu-content">
+                    <span class="menu-title">Meus Pedidos</span>
+                    <span class="menu-description">Acompanhe seus pedidos</span>
+                </div>
+                <div class="menu-arrow">›</div>
+            </a>
+            <a href="#" class="menu-item sair" id="logoutBtn">
+                <div class="menu-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                    </svg>
+                </div>
+                <div class="menu-content">
+                    <span class="menu-title">Sair</span>
+                    <span class="menu-description">Encerrar sessão</span>
+                </div>
+                <div class="menu-arrow">›</div>
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<!-- Container de pedidos -->
+<div id="ordersContainer" class="orders-container" style="display: none;">
+    <h2>Meus Pedidos</h2>
+    <button onclick="closeOrders()" class="btn btn-secondary mb-3">Fechar</button>
+    <div id="ordersList" class="list-group"></div>
+</div>
+
+<script src="perfil.js"></script>
+</body>
+</html>

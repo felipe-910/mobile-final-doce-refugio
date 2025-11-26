@@ -1,0 +1,44 @@
+[
+    {
+        "orderNumber": "123456789",
+        "orderDate": "2025-01-19T14:30:00.000Z",
+        "status": "novo",
+        "deliveryType": "delivery",
+        "paymentMethod": "pix",
+        "changeFor": null,
+        "items": [
+            {
+                "id": 1737298800000,
+                "productId": 1,
+                "name": "Red Velvet Premium",
+                "price": "R$ 94,90",
+                "priceValue": 94.90,
+                "image": "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?auto=format&fit=crop&w=600&q=80",
+                "quantity": 2,
+                "observations": "Sem nozes, por favor"
+            },
+            {
+                "id": 1737298810000,
+                "productId": 3,
+                "name": "Morango Fresco",
+                "price": "R$ 87,90",
+                "priceValue": 87.90,
+                "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80",
+                "quantity": 1,
+                "observations": ""
+            }
+        ],
+        "address": {
+            "cep": "12345-678",
+            "rua": "Rua das Flores",
+            "numero": "123",
+            "complemento": "Apto 45",
+            "bairro": "Centro",
+            "cidade": "São Paulo",
+            "referencia": "Próximo ao mercado"
+        },
+        "subtotal": 277.70,
+        "deliveryFee": 8.00,
+        "total": 285.70
+    }
+]
